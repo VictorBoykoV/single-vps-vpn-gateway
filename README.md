@@ -14,7 +14,7 @@ flowchart LR
 
 - strongSwan IKEv2 with a private certificate authority and an initial EAP user.
 - IPv4 full-tunnel forwarding and NAT through the VPS, with forwarding restricted to authenticated IPsec traffic.
-- An IPv6 tunnel address and a server-side IPv6 sink. The generated Android profile blocks IPv4 and IPv6 traffic outside the VPN; client behavior still needs a real-device test.
+- An IPv6 tunnel address and a server-side IPv6 sink. AdGuard returns no IPv6 DNS addresses because this gateway has no IPv6 Internet exit. The generated Android profile blocks IPv4 and IPv6 traffic outside the VPN; client behavior still needs a real-device test.
 - AdGuard Home on a private VPN-only address. Its dashboard is password-protected and is not bound to the public interface.
 - Unbound on localhost as AdGuard's recursive upstream, with no public DNS fallback.
 - The [official AdGuard DNS filter](https://github.com/AdguardTeam/HostlistsRegistry) and no per-query history by default.

@@ -25,6 +25,7 @@ dns:
     use_custom: false
   serve_plain_dns: true
   enable_dnssec: true
+  aaaa_disabled: true
 querylog:
   enabled: false
   file_enabled: false

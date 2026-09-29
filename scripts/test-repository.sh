@@ -40,6 +40,7 @@ assert "10.254.0.1:3000" in config
 assert "10.252.0.0/24" in config
 assert "__" not in config
 assert "querylog:\n  enabled: false" in config
+assert "aaaa_disabled: true" in config
 assert "schema_version: 34" in config
 android = json.loads((temp / "client.sswan").read_text())
 assert android["remote"]["addr"] == "vpn.example.net"
