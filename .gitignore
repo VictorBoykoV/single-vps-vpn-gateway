@@ -1,0 +1,9 @@
+.DS_Store
+*.sswan
+*.mobileconfig
+*.pem
+*.key
+*credentials*
+*.log
+*.tar.gz
+!templates/AdGuardHome.yaml
