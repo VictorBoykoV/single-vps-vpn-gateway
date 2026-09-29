@@ -19,3 +19,5 @@ First verify the actual public IPv4 and IPv6 from the connected device. A servic
 ## Ads remain
 
 Check that the device received the private DNS address and that AdGuard loaded its filter. Apps using their own encrypted DNS can bypass it. DNS filtering also cannot reliably block ads served from the same domain as content. Adjust filters in the VPN-only dashboard after backing up its configuration.
+
+For in-video YouTube ads, see [YouTube and client-side blocking](AD-BLOCKING.md). Additional DNS lists or blocking YouTube video domains can break playback without removing the ads.

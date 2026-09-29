@@ -21,6 +21,8 @@ flowchart LR
 
 DNS filtering cannot remove ads served from the same domain as the desired content. Applications with their own encrypted DNS can bypass the VPN's DNS setting. A VPN also cannot hide GPS, account identity, cookies, or device fingerprints.
 
+**YouTube ads:** AdGuard Home cannot reliably remove in-video YouTube ads, and adding more DNS blocklists will not solve that limitation. Keep the server filter for ordinary ads and trackers; use a content blocker in the browser where you watch YouTube, or an official ad-free YouTube subscription for the native app. See [YouTube and client-side blocking](docs/AD-BLOCKING.md) for device-specific options and the Android VPN conflict.
+
 ## Requirements
 
 - A **fresh Ubuntu 24.04** VPS with a public IPv4 address and `x86_64` or `aarch64` CPU. The installer refuses an existing strongSwan/AdGuard setup.

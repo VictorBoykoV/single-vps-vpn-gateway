@@ -7,6 +7,8 @@
 3. Confirm the imported profile has the expected server identity and blocks IPv4 and IPv6 outside the VPN. Leave the optional 1280 MTU unset unless tests show a path-MTU problem.
 4. Connect, open a normal website, then open the private AdGuard dashboard address from the README.
 
+For YouTube in a browser, see [client-side blocking options](AD-BLOCKING.md). The VPS DNS filter does not reliably remove YouTube video ads.
+
 ## Apple and other IKEv2 clients
 
 The Apple `.mobileconfig` generator installs the private CA and a full-tunnel IKEv2 profile without the EAP password. Review the profile before installation and enter the password on the device. For manual IKEv2 clients, use the same server address and remote identity (`SERVER_ID`), EAP username and password, and trust the generated CA certificate. Prefer full-tunnel IPv4 and IPv6 settings. Client interfaces differ; inspect their actual routes and DNS after connecting.
