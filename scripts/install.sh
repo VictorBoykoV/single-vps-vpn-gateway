@@ -160,7 +160,8 @@ archive="AdGuardHome_linux_${arch}.tar.gz"
 curl -fL --retry 3 -o "$tmp/$archive" \
   "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.79/$archive"
 printf '%s  %s\n' "$checksum" "$tmp/$archive" | sha256sum -c -
-tar -xzf "$tmp/$archive" -C "$tmp" AdGuardHome/AdGuardHome
+# Verified official archives may prefix member names with ./; extract in the private temp directory.
+tar -xzf "$tmp/$archive" -C "$tmp"
 install -m 755 "$tmp/AdGuardHome/AdGuardHome" /opt/AdGuardHome/AdGuardHome
 id adguard >/dev/null 2>&1 || useradd --system --home /var/lib/AdGuardHome --shell /usr/sbin/nologin adguard
 install -d -o adguard -g adguard -m 700 /var/lib/AdGuardHome /var/lib/AdGuardHome/work
