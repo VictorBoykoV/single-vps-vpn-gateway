@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">Single VPS VPN Gateway</title><desc id="desc">A simple illuminated gateway symbol and the project name. StrongSwan, AdGuard Home and Unbound on one VPS.</desc>
+<rect width="1200" height="340" rx="28" fill="#12222e"/>
+<path d="M0 171H98M260 171H314M1028 0V90Q1028 132 1070 132H1200" fill="none" stroke="#355161" stroke-width="2"/>
+<rect x="98" y="53" width="162" height="232" rx="38" fill="#1b3341"/>
+<path d="M130 217V127Q130 92 179 92Q228 92 228 127V217" fill="none" stroke="#67e3c2" stroke-width="15" stroke-linecap="round"/>
+<rect x="161" y="144" width="36" height="67" rx="18" fill="#67e3c2"/>
+<circle cx="314" cy="171" r="8" fill="#67e3c2"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="357" y="69" fill="#67e3c2" font-size="13" font-weight="700" letter-spacing="3">ONE VPS. YOUR OWN GATEWAY.</text>
+<text x="352" y="144" fill="#fff" font-size="65" font-weight="700" letter-spacing="-2">Single VPS</text>
+<text x="352" y="219" fill="#fff" font-size="65" font-weight="700" letter-spacing="-2">VPN Gateway</text>
+<text x="357" y="275" fill="#bfd0db" font-size="22">strongSwan · AdGuard Home · Unbound</text>
+</g></svg>

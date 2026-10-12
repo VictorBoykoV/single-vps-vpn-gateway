@@ -21,7 +21,7 @@ python3 scripts/render-adguard-config.py templates/AdGuardHome.yaml 10.254.0.1 \
   "$temp/adguard.yaml"
 openssl req -x509 -newkey rsa:2048 -nodes -days 1 \
   -subj '/CN=Example VPN Test CA' -keyout "$temp/ca.key" -out "$temp/ca.pem" >/dev/null 2>&1
-SERVER_ID=vpn.example.net VPN_USER=example-user PROFILE_MTU=1280 \
+SERVER_ID=vpn.example.net VPN_USER=example-user \
   CA_CERT_FILE="$temp/ca.pem" OUTPUT_FILE="$temp/client.sswan" \
   bash scripts/generate-android-profile.sh >/dev/null
 SERVER_ID=vpn.example.net VPN_USER=example-user CA_CERT_FILE="$temp/ca.pem" \

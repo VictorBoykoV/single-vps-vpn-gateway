@@ -7,7 +7,7 @@ PROFILE_NAME="${PROFILE_NAME:-Single VPS VPN}"
 CA_CERT_FILE="${CA_CERT_FILE:-}"
 OUTPUT_FILE="${OUTPUT_FILE:-single-vps-vpn.sswan}"
 PROFILE_URL="${PROFILE_URL:-}"
-PROFILE_MTU="${PROFILE_MTU:-}"
+PROFILE_MTU="${PROFILE_MTU:-1280}"
 
 [[ -n "$SERVER_ID" && -n "$VPN_USER" ]] || {
   echo "Set SERVER_ID and VPN_USER." >&2

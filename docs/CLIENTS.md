@@ -4,7 +4,7 @@
 
 1. Generate a `.sswan` profile as shown in the README. Import it into the official strongSwan VPN Client app.
 2. Enter the EAP password when prompted. Do not embed it in the profile file.
-3. Confirm the imported profile has the expected server identity and blocks IPv4 and IPv6 outside the VPN. Leave the optional 1280 MTU unset unless tests show a path-MTU problem.
+3. Confirm the imported profile has the expected server identity, blocks IPv4 and IPv6 outside the VPN, and uses the generated default MTU of 1280. Change MTU only after testing the actual path. Android's Always-on VPN / Block connections without VPN settings separately control connectivity while disconnected.
 4. Connect, open a normal website, then open the private AdGuard dashboard address from the README.
 
 For YouTube in a browser, see [client-side blocking options](AD-BLOCKING.md). The VPS DNS filter does not reliably remove YouTube video ads.

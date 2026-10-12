@@ -10,7 +10,7 @@ IKE traffic reached the server. Check the EAP username, password, server identit
 
 ## VPN connects but websites do not load
 
-Run `sudo ./scripts/verify.sh` on the VPS. If the AdGuard page works but websites fail, check Unbound and outbound DNS from the VPS. If DNS works but large pages or video stall, try an Android profile generated with `PROFILE_MTU=1280`. Reconnect after any profile or server DNS change so the device receives the new settings.
+Run `sudo ./scripts/verify.sh` on the VPS. If the AdGuard page works but websites fail, check Unbound and outbound DNS from the VPS. If DNS works but large pages or video stall, confirm the Android profile uses MTU 1280 (the current generator default); regenerate older profiles if necessary. Reconnect after any profile or server DNS change so the device receives the new settings. If only a particular site fails, compare AdGuard filtering with its access-denied or timeout response; a datacenter IP reputation block cannot be fixed by changing the VPN password.
 
 ## Unexpected location or IPv6
 

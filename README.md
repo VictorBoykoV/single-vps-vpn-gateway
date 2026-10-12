@@ -1,6 +1,35 @@
-# Single VPS VPN Gateway
+<p align="center">
+  <img src="docs/assets/gateway-banner.svg" width="100%" alt="Single VPS VPN Gateway — strongSwan, AdGuard Home and Unbound on one VPS">
+</p>
+
+<h1 align="center">Single VPS VPN Gateway</h1>
+
+<p align="center">
+  A self-hosted IKEv2 VPN with private DNS ad blocking, built on one VPS.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/server-Ubuntu%2024.04-e95420?style=flat-square" alt="Ubuntu 24.04">
+  <img src="https://img.shields.io/badge/VPN-strongSwan%20IKEv2-7058d9?style=flat-square" alt="strongSwan IKEv2">
+  <img src="https://img.shields.io/badge/filter-AdGuard%20Home-4b9d61?style=flat-square" alt="AdGuard Home">
+  <img src="https://img.shields.io/badge/DNS-Unbound-167d9a?style=flat-square" alt="Unbound recursive DNS">
+  <img src="https://img.shields.io/badge/Android%20MTU-1280-2563eb?style=flat-square" alt="Android profile MTU 1280">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square" alt="MIT License"></a>
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#deploy-from-android">Deploy from Android</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="docs/CLIENTS.md">Client setup</a> ·
+  <a href="docs/OPERATIONS.md">Operations</a> ·
+  <a href="docs/TESTING.md">Tests</a> ·
+  <a href="#security-and-limitations">Security</a>
+</p>
 
 A self-hosted VPN on one VPS, using **strongSwan IKEv2/EAP**, **AdGuard Home** for DNS-based ad and tracker blocking, and **Unbound** for recursive DNS. The server's public IPv4 is the address websites see. The template does not assume a provider, country, hostname, or user account.
+
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -8,6 +37,13 @@ flowchart LR
     V -->|Private DNS| A[AdGuard Home]
     A --> U[Unbound recursion]
     V -->|IPv4 Internet access| W[Websites]
+
+    classDef client fill:#172554,stroke:#60a5fa,color:#fff
+    classDef gateway fill:#12222e,stroke:#67e3c2,color:#fff
+    classDef dns fill:#3b0764,stroke:#c084fc,color:#fff
+    class D client
+    class V gateway
+    class A,U dns
 ```
 
 ## What this installs
@@ -33,7 +69,7 @@ DNS filtering cannot remove ads served from the same domain as the desired conte
 
 Choose `CLIENT_POOL`, `IPV6_SINK_POOL`, and `DNS_IP` that do not overlap the VPS network, local LANs, or other VPNs. Defaults are `10.252.0.0/24`, `fd42:252::/64`, and `10.254.0.1`.
 
-## Install
+## Quick start
 
 Run on the **new VPS**:
 
@@ -61,7 +97,7 @@ sudo SERVER_ID='vpn.example.net' VPN_USER='alice' \
   ./scripts/generate-android-profile.sh
 ```
 
-Copy that file to your phone over a trusted channel, import it in the strongSwan app, and enter the VPN password there. If large pages fail while small pages work, regenerate with `PROFILE_MTU=1280`, then import and test that profile. The profile includes an IPv4/IPv6 outside-VPN block and does not contain your password.
+Copy that file to your phone over a trusted channel, import it in the strongSwan app, and enter the VPN password there. Android profiles default to **MTU 1280**; `PROFILE_MTU` can explicitly select a value from 1280 to 1500 after testing the path. The profile includes an IPv4/IPv6 outside-VPN block and does not contain your password. Android's Always-on VPN and Block connections without VPN settings are separate protection while disconnected.
 
 For Apple devices, use `scripts/generate-apple-profile.sh` with the same `SERVER_ID`, `VPN_USER`, `CA_CERT_FILE`, and a `.mobileconfig` output path. Review the installed CA/profile on the device. See [client setup](docs/CLIENTS.md) for manual setup and verification.
 
@@ -76,6 +112,18 @@ sudo ./scripts/verify.sh
 ```
 
 Then test from the actual device on both Wi-Fi and mobile data: VPN connection, website loading, public IPv4, DNS, and absence of unexpected public IPv6. Server-side checks alone cannot prove client reachability or leak protection. See [client checklist](docs/CLIENTS.md), [operations](docs/OPERATIONS.md), and [troubleshooting](docs/TROUBLESHOOTING.md).
+
+### Deployment regression checks
+
+The bundled installer passed **three consecutive gateway reset → reinstall → real IKEv2 client cycles** through Rookstride on Android 8, 9 and 16. Checks included private DNS/dashboard binding, filtering, fresh certificates, absence of duplicate firewall rules and recovery after a VPS reboot. The first cycle purged the managed packages to check a cold installation. Ubuntu and SSH were retained during each reset.
+
+See [test scope, fixes and reproduction](docs/TESTING.md). These tests used Ubuntu 24.04 on `x86_64`; they do not prove every provider, client network or device works.
+
+## Deploy from Android
+
+[Rookstride](https://github.com/VictorBoykoV/rookstride) is a separate open-source Android app that bundles this gateway's installer and an explicit SSH management helper. It can install from a phone, manage users and sessions, export profiles, select stronger DNS filtering and optionally collect traffic estimates. The administrator can connect with its embedded strongSwan engine; other users can keep the official strongSwan client.
+
+Rookstride is an **early alpha** with its own [test report](https://github.com/VictorBoykoV/rookstride/blob/main/docs/TESTING.md) and [signed APK releases](https://github.com/VictorBoykoV/rookstride/releases). Standalone installation from this repository does not install its management helper or collector. Its reviewed reset removes recognized gateway data; it is not a whole-OS wipe.
 
 ## Security and limitations
 
