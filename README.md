@@ -4,6 +4,8 @@
 
 <h1 align="center">Single VPS VPN Gateway</h1>
 
+<p align="center"><a href="https://github.com/VictorBoykoV/rookstride"><img src="docs/assets/rookstride/rook.svg" width="52" alt="Rookstride: revised red bird mark"></a><br><a href="https://github.com/VictorBoykoV/rookstride">Deploy and manage from Android with Rookstride</a></p>
+
 <p align="center">
   A self-hosted IKEv2 VPN with private DNS ad blocking, built on one VPS.
 </p>
@@ -124,6 +126,8 @@ See [test scope, fixes and reproduction](docs/TESTING.md). These tests used Ubun
 [Rookstride](https://github.com/VictorBoykoV/rookstride) is a separate open-source Android app that bundles this gateway's installer and an explicit SSH management helper. It can install from a phone, manage users and sessions, export profiles, select stronger DNS filtering and optionally collect traffic estimates. The administrator can connect with its embedded strongSwan engine; other users can keep the official strongSwan client.
 
 Rookstride is an **early alpha** with its own [test report](https://github.com/VictorBoykoV/rookstride/blob/main/docs/TESTING.md) and [signed APK releases](https://github.com/VictorBoykoV/rookstride/releases). Standalone installation from this repository does not install its management helper or collector. Its reviewed reset removes recognized gateway data; it is not a whole-OS wipe.
+
+Its experimental **0.2.0** app also coordinates an [IKEv2 → AmneziaWG two-server recipe](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PAIR-MODE.md), with private exit DNS, phone-controlled pair reset/role swapping and repeated [real-provider tests](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PAIR-PROVIDER-TESTING.md). This repository remains the one-server backend. The revised Rook mark above matches the app project's branding and carries its separate artwork license.
 
 ## Security and limitations
 
