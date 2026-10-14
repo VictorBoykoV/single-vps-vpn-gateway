@@ -134,3 +134,21 @@ Its experimental **0.2.0** app also coordinates an [IKEv2 → AmneziaWG two-serv
 The VPS operator and hosting provider can observe the server and its Internet traffic. Standard DNS is protected between the device and VPS by IPsec, but Unbound sends ordinary DNS queries to authoritative servers unless you replace that design. The template deliberately keeps DNS and the dashboard on a private address and refuses installation over an existing configuration. Protect `/root/single-vps-vpn`, rotate credentials when a device is lost, and apply Ubuntu and AdGuard Home security updates. The pinned AdGuard version should be refreshed deliberately after reviewing its release and checksum.
 
 Licensed under [MIT](LICENSE). Uses [strongSwan](https://docs.strongswan.org/docs/latest/), [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
+
+
+## Meet Rook, the project guide
+
+<img src="docs/assets/rookstride/rook-guide.svg" alt="Rook, the red navigator with a map" width="115" align="right">
+
+[Rookstride](https://github.com/VictorBoykoV/rookstride) brings the gateway to Android:
+installation checkpoints, progress recovery, account management, and an embedded
+strongSwan client. Users can read the offline guide or Rook’s stories while the
+separate installation service continues. Planning ranges are estimates; detached
+server jobs need inspection after a phone force-stop or lost connection.
+
+Rook is the original project ambassador: a small red bird with a lantern, a map,
+and a habit of listening before helping. His [five connected worlds and fifty
+chapters](https://github.com/VictorBoykoV/rookstride/blob/main/website/WORLDS.md)
+are fiction. The [character and brand rules](https://github.com/VictorBoykoV/rookstride/blob/main/brand/AMBASSADOR.md)
+keep the same recognizable face across the app, documentation and community art.
+The story artwork is GPL-3.0-or-later; gateway scripts retain their MIT license.
