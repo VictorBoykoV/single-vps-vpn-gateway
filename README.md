@@ -152,3 +152,10 @@ chapters](https://github.com/VictorBoykoV/rookstride/blob/main/website/WORLDS.md
 are fiction. The [character and brand rules](https://github.com/VictorBoykoV/rookstride/blob/main/brand/AMBASSADOR.md)
 keep the same recognizable face across the app, documentation and community art.
 The story artwork is GPL-3.0-or-later; gateway scripts retain their MIT license.
+
+
+### A familiar first language
+
+[Rookstride 0.2.0-alpha4](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4) adds English, Russian, Persian, Arabic and Simplified Chinese controls and a beginner guide. Technical values retain their original characters. Main website pages share reviewed catalogs; detailed engineering documents and stories remain English. Model review is recorded separately from native-speaking community review.
+
+[Language workflow](https://github.com/VictorBoykoV/rookstride/tree/main/i18n) · [Exact localization checks](https://github.com/VictorBoykoV/rookstride/blob/main/docs/LOCALIZATION-TESTING.md) · [Browser, iPhone and messenger backlog](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PLATFORMS-AND-LANGUAGES.md). These future clients are plans, not available installers or public credential forms. The gateway recipe in this repository is unchanged by the language edition.
