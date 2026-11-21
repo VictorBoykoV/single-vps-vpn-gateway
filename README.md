@@ -4,7 +4,11 @@
 
 <h1 align="center">Single VPS VPN Gateway</h1>
 
-<p align="center"><a href="https://github.com/VictorBoykoV/rookstride"><img src="docs/assets/rookstride/rook.svg" width="52" alt="Rookstride: revised red bird mark"></a><br><a href="https://github.com/VictorBoykoV/rookstride">Deploy and manage from Android with Rookstride</a></p>
+<p align="center">
+  <a href="https://rookstride.com"><img src="docs/assets/rookstride/rook.svg" width="52" alt="Rookstride"></a><br>
+  <a href="https://rookstride.com">Rookstride setup options</a> ·
+  <a href="https://github.com/VictorBoykoV/rookstride/releases">Android releases</a>
+</p>
 
 <p align="center">
   A self-hosted IKEv2 VPN with private DNS ad blocking, built on one VPS.
@@ -21,7 +25,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
-  <a href="#deploy-from-android">Deploy from Android</a> ·
+  <a href="#use-rookstride">Use Rookstride</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="docs/CLIENTS.md">Client setup</a> ·
   <a href="docs/OPERATIONS.md">Operations</a> ·
@@ -115,19 +119,17 @@ sudo ./scripts/verify.sh
 
 Then test from the actual device on both Wi-Fi and mobile data: VPN connection, website loading, public IPv4, DNS, and absence of unexpected public IPv6. Server-side checks alone cannot prove client reachability or leak protection. See [client checklist](docs/CLIENTS.md), [operations](docs/OPERATIONS.md), and [troubleshooting](docs/TROUBLESHOOTING.md).
 
-### Deployment regression checks
+### Historical app-bundled regression checks
 
-The bundled installer passed **three consecutive gateway reset → reinstall → real IKEv2 client cycles** through Rookstride on Android 8, 9 and 16. Checks included private DNS/dashboard binding, filtering, fresh certificates, absence of duplicate firewall rules and recovery after a VPS reboot. The first cycle purged the managed packages to check a cold installation. Ubuntu and SSH were retained during each reset.
+An earlier app-bundled installer passed **three consecutive gateway reset → reinstall → real IKEv2 client cycles** through Rookstride on Android 8, 9 and 16. Checks included private DNS/dashboard binding, filtering, fresh certificates, absence of duplicate firewall rules and recovery after a VPS reboot. The first cycle purged the managed packages to check a cold installation. Ubuntu and SSH were retained during each reset.
 
 See [test scope, fixes and reproduction](docs/TESTING.md). These tests used Ubuntu 24.04 on `x86_64`; they do not prove every provider, client network or device works.
 
-## Deploy from Android
+## Use Rookstride
 
-[Rookstride](https://github.com/VictorBoykoV/rookstride) is a separate open-source Android app that bundles this gateway's installer and an explicit SSH management helper. It can install from a phone, manage users and sessions, export profiles, select stronger DNS filtering and optionally collect traffic estimates. The administrator can connect with its embedded strongSwan engine; other users can keep the official strongSwan client.
+Use [Rookstride](https://rookstride.com) to find the browser setup, Android app and assistant options. The [device guide](https://rookstride.com/connect) covers VPN clients for Android, iPhone, macOS and Windows.
 
-Rookstride is an **early alpha** with its own [test report](https://github.com/VictorBoykoV/rookstride/blob/main/docs/TESTING.md) and [signed APK releases](https://github.com/VictorBoykoV/rookstride/releases). Standalone installation from this repository does not install its management helper or collector. Its reviewed reset removes recognized gateway data; it is not a whole-OS wipe.
-
-Its experimental **0.2.0** app also coordinates an [IKEv2 → AmneziaWG two-server recipe](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PAIR-MODE.md), with private exit DNS, phone-controlled pair reset/role swapping and repeated [real-provider tests](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PAIR-PROVIDER-TESTING.md). This repository remains the one-server backend. The revised Rook mark above matches the app project's branding and carries its separate artwork license.
+The standalone installer here configures one IKEv2 server with private DNS. Rookstride has its own protocol list and management tools. For the current Android build and its test scope, see the [signed releases](https://github.com/VictorBoykoV/rookstride/releases).
 
 ## Security and limitations
 
@@ -152,10 +154,3 @@ chapters](https://github.com/VictorBoykoV/rookstride/blob/main/website/WORLDS.md
 are fiction. The [character and brand rules](https://github.com/VictorBoykoV/rookstride/blob/main/brand/AMBASSADOR.md)
 keep the same recognizable face across the app, documentation and community art.
 The story artwork is GPL-3.0-or-later; gateway scripts retain their MIT license.
-
-
-### A familiar first language
-
-[Rookstride 0.2.0-alpha4](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4) adds English, Russian, Persian, Arabic and Simplified Chinese controls and a beginner guide. Technical values retain their original characters. Main website pages share reviewed catalogs; detailed engineering documents and stories remain English. Model review is recorded separately from native-speaking community review.
-
-[Language workflow](https://github.com/VictorBoykoV/rookstride/tree/main/i18n) · [Exact localization checks](https://github.com/VictorBoykoV/rookstride/blob/main/docs/LOCALIZATION-TESTING.md) · [Browser, iPhone and messenger backlog](https://github.com/VictorBoykoV/rookstride/blob/main/docs/PLATFORMS-AND-LANGUAGES.md). These future clients are plans, not available installers or public credential forms. The gateway recipe in this repository is unchanged by the language edition.
