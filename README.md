@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://rookstride.com"><img src="docs/assets/rookstride/rook.svg" width="52" alt="Rookstride"></a><br>
-  <a href="https://rookstride.com">Rookstride setup options</a> ·
+  <a href="https://rookstride.com/start">Rookstride setup options</a> ·
   <a href="https://github.com/VictorBoykoV/rookstride/releases">Android releases</a>
 </p>
 
@@ -127,7 +127,9 @@ See [test scope, fixes and reproduction](docs/TESTING.md). These tests used Ubun
 
 ## Use Rookstride
 
-Use [Rookstride](https://rookstride.com) to find the browser setup, Android app and assistant options. The [device guide](https://rookstride.com/connect) covers VPN clients for Android, iPhone, macOS and Windows.
+Rookstride offers a public browser workspace, an Android app and a local
+assistant connector. The device guide covers VPN clients for Android, iPhone,
+macOS and Windows. [Setup options](https://rookstride.com/start) · [Browser workspace](https://web.rookstride.com/) · [Device guide](https://rookstride.com/connect)
 
 The standalone installer here configures one IKEv2 server with private DNS. Rookstride has its own protocol list and management tools. For the current Android build and its test scope, see the [signed releases](https://github.com/VictorBoykoV/rookstride/releases).
 
